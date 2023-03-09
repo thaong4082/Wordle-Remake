@@ -26,33 +26,13 @@ public class GuessEvaluator{
     private String currentGuess;
     private String guessAnalysis;
 
-    public static void main(String[] args) throws IOException {
-        GuessEvaluator evaluate = new GuessEvaluator();
-        evaluate.setSecretWord();
-        Scanner userIn = new Scanner(System.in);
-
-        int guessNum = 1;
-        while(true){
-            System.out.printf("Guess #%d: ", guessNum);
-            String userGuess = userIn.nextLine();
-            System.out.println("  -->     " + evaluate.analyzeGuess(userGuess));
-
-            if (userGuess.equals(evaluate.getSecretWord())){
-                System.out.printf("YOU WON! You guessed the word in %d turns!", guessNum);
-                break;
-            }
-            guessNum++;
-        }
-
-
-    }
     public GuessEvaluator() throws IOException {
         this.secretWord = secretWord;
         this.currentGuess = currentGuess;
         this.guessAnalysis = guessAnalysis;
     }
 
-    private String getSecretWord(){
+    String getSecretWord(){
         return secretWord;
     }
 
@@ -66,7 +46,7 @@ public class GuessEvaluator{
         try{
             String randomWord = dict.getRandomWord(wordSet);
             this.secretWord = randomWord;
-            System.out.println("Here is our random word for the game: " + randomWord);
+//            System.out.println("Here is our random word for the game: " + randomWord);
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
