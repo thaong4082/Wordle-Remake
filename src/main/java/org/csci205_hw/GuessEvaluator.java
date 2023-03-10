@@ -18,6 +18,7 @@ package org.csci205_hw;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -60,21 +61,28 @@ public class GuessEvaluator{
     public String analyzeGuess(String guess){
         currentGuess = guess;
         guessAnalysis = "";
+        Set<Character> matchedCharacters = new HashSet<>();
 
+        //if the user puts in a word that is not 5 letters, throw an exception
         if (currentGuess.length() != 5){
             throw new IllegalArgumentException("5 letters please!");
         }
 
+        //Looping through the secret word
         for (int i = 0; i < secretWord.length(); i++){
             char guessIndex = currentGuess.charAt(i);
             char secretIndex = secretWord.charAt(i);
 
+            //if the guess index is correct, *
             if (guessIndex == secretIndex){
                 guessAnalysis += "*";
             }
-            else if (secretWord.indexOf(guessIndex) >= 0){
+            //Else if the index is wrong but the correct letter and not already matched, +
+            else if (secretWord.indexOf(guessIndex) >= 0 && !matchedCharacters.contains(guessIndex)){
                 guessAnalysis += "+";
+                matchedCharacters.add(guessIndex);
             }
+            //Else completely wrong, -
             else{
                 guessAnalysis += "-";
             }

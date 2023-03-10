@@ -35,13 +35,29 @@ public class Wordle {
         Wordle wordle = new Wordle();
         wordle.initNewGame();
 
+        Scanner user = new Scanner(System.in);
+        playNextTurn(wordle, user);
     }
+
+    private static void playNextTurn(Wordle wordle, Scanner user) throws IOException {
+        System.out.print("Would you like to play again? [y | n]: ");
+        String playAgain = user.nextLine();
+        if (playAgain.equals("y") || playAgain.equals("Y")){
+            wordle.initNewGame();
+        }
+        else{
+            System.out.println("Goodbye <3");
+        }
+    }
+
     public Wordle(){
         this.guessNumber = 0;
         this.lastGuess = "";
     }
     public void initNewGame() throws IOException {
         System.out.println("Welcome to Thao & Aya's Wordle <3");
+        this.guessNumber = 0;
+        this.lastGuess = "";
 
         GuessEvaluator evaluate = new GuessEvaluator();
         evaluate.setSecretWord();
@@ -52,7 +68,7 @@ public class Wordle {
         while(guessNum <= 6){
             System.out.printf("Guess #%d: ", guessNum);
             String userGuess = userIn.nextLine();
-            System.out.print("  -->     " + evaluate.analyzeGuess(userGuess));
+            System.out.print("   ---->  " + evaluate.analyzeGuess(userGuess));
             System.out.printf("     Try again. %d guesses left.%n", 6 - guessNum);
 
             if (userGuess.equals(evaluate.getSecretWord())){
@@ -64,10 +80,8 @@ public class Wordle {
 
 
     }
-    public void playNextTurn(){
 
-    }
-    public boolean isGameOver(){
-        return false;
-    }
+//    public boolean isGameOver(){
+//        return guessNumber >= 6 || lastGuess.equals(evaluate.getSecretWord())
+//    }
 }
