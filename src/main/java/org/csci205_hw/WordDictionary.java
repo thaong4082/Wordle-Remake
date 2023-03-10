@@ -2,7 +2,7 @@
  * CSCI205 -Software Engineering and Design
  * Spring2023* Instructor: Prof. Brian King
  *
- * Name: Thao Nguyen
+ * Name: Thao Nguyen & Aya Tarist
  * Section: 02
  * Date: 3/7/23
  * Time: 11:58 PM
@@ -11,7 +11,9 @@
  * Package: org.csci205_hw
  * Class: WordDictionary
  *
- * Description:
+ * Description: A simple class that reads in 6 novels and
+ * the Websters Dictionary to compose a Master Dictionary
+ * that contains five-letter words.
  *
  * *****************************************/
 package org.csci205_hw;

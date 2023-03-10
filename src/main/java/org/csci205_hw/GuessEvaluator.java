@@ -2,7 +2,7 @@
  * CSCI205 -Software Engineering and Design
  * Spring2023* Instructor: Prof. Brian King
  *
- * Name: Thao Nguyen
+ * Name: Thao Nguyen & Aya Tarist
  * Section: 02
  * Date: 3/8/23
  * Time: 6:31 PM
@@ -11,7 +11,8 @@
  * Package: org.csci205_hw
  * Class: GuessEvaluator
  *
- * Description:
+ * Description: A simple guessEvaluator that would compare
+ * the user's guess to the secret word.
  *
  * *****************************************/
 package org.csci205_hw;
