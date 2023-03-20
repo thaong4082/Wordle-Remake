@@ -106,7 +106,7 @@ public class WordDictionary {
      * @param url
      * @throws IOException
      */
-    private void processTextAtURL(URL url) throws IOException {
+    public void processTextAtURL(URL url) throws IOException {
 
         //Read in the URL
         BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));

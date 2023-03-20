@@ -81,7 +81,7 @@ public class Wordle {
      * guess a five-letter word
      * @throws IOException
      */
-    private void gameProgress() throws IOException {
+    public void gameProgress() throws IOException {
         GuessEvaluator evaluate = new GuessEvaluator();
         evaluate.setSecretWord();
         Scanner userIn = new Scanner(System.in);
@@ -118,7 +118,7 @@ public class Wordle {
      * @param user
      * @throws IOException
      */
-    private void playNextTurn(Wordle wordle, Scanner user) throws IOException {
+    public void playNextTurn(Wordle wordle, Scanner user) throws IOException {
         System.out.print("Would you like to play again? [y | n]: ");
         String playAgain = user.nextLine();
         //If they user wants to play again, a new game is made with a different word
